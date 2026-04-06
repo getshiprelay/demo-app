@@ -1,0 +1,39 @@
+# DEMO-05: Weekly automated commit for demo repo freshness.
+#
+# Runs every Monday at 09:00 UTC. Picks a random commit message from
+# the commit library, creates a file change, commits, and pushes.
+# This keeps the demo repository showing recent activity so visitors
+# see a living product when they try the /demo page.
+#
+# Copy this file to .github/workflows/weekly-commit.yml in the demo repo.
+
+name: Weekly Demo Commit
+
+on:
+  schedule:
+    # Every Monday at 09:00 UTC
+    - cron: "0 9 * * 1"
+  workflow_dispatch: # Manual trigger for testing
+
+permissions:
+  contents: write
+
+jobs:
+  weekly-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure git
+        run: |
+          git config user.name "TaskFlow Bot"
+          git config user.email "bot@taskflow.example.com"
+
+      - name: Pick random commit and apply
+        run: |
+          chmod +x ./scripts/weekly-commit.sh
+          ./scripts/weekly-commit.sh
+
+      - name: Push changes
+        run: git push
