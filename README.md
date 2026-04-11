@@ -119,3 +119,5 @@ This is a demo repository. The code is fictional and for demonstration purposes 
 ---
 
 **Powered by ShipRelay** - AI-powered release notes for your users
+
+[![ShipRelay](https://shiprelay.io/api/badge/getshiprelay-demo-app)](https://shiprelay.io/getshiprelay-demo-app)
