@@ -1,0 +1,15 @@
+name: ShipRelay Changelog
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: getshiprelay/release-action@v1
+        with:
+          api-key: ${{ secrets.SHIPRELAY_API_KEY }}
+          repository: getshiprelay/demo-app
+          audience: user
