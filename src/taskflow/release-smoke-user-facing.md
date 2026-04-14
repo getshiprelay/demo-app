@@ -2,3 +2,4 @@
 
 - Added quick filters for Today, This Week, and Overdue tasks.
 - Fixed duplicate toast alerts after creating a task.
+- Improved task details panel load speed on first open.
